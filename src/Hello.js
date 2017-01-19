@@ -1,23 +1,45 @@
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'; 
 
 
-class Hello extends Component {
+class Hello extends React.Component {
 
+  constructor() {
+    super();
+
+    this.state = {
+      title: "Welcome",
+    }
+  }
+
+
+  changeTitle(title){
+    this.setState({title});
+  }
+
+
+  tellSomething(){
+      return new Date().toLocaleTimeString();
+  }
+
+
+  handleChange(e){
+   const title = e.target.value;
+   this.props.changeTitle(title);
+  }
 
   render() {
-
-    function tellSomething(){
-      return new Date().toLocaleTimeString();
-    }
-
+    const name = "Sid";
     return (
      <div className="hello-world">
-       Hello, the current time is {tellSomething()}
+       {this.changeTitle.bind(this)}, My name is {name} and the current time is {this.tellSomething()}
+      <input onChange={this.handleChange.bind(this)} />
      </div>
     );
   }
 }
+
 
 
 

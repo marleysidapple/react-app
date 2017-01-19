@@ -4,7 +4,10 @@ import App from './App';
 import Hello from './Hello';
 import './index.css';
 
+
+const app = document.getElementById('root');
+
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+  <App name="demo property" />,
+  app//document.getElementById('root')
 );
