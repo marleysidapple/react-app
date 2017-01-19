@@ -10,6 +10,7 @@ class Hello extends React.Component {
 
     this.state = {
       title: "Welcome",
+      time: new Date().toLocaleTimeString()
     }
   }
 
@@ -19,9 +20,10 @@ class Hello extends React.Component {
   }
 
 
-  tellSomething(){
-      return new Date().toLocaleTimeString();
-  }
+
+  // tellSomething(){
+  //     return new Date().toLocaleTimeString();
+  // }
 
 
   handleChange(e){
@@ -30,10 +32,15 @@ class Hello extends React.Component {
   }
 
   render() {
+
+    setInterval(() => {
+    this.setState({time: new Date().toLocaleTimeString()});
+    }, 1000);
+
     const name = "Sid";
     return (
      <div className="hello-world">
-       {this.changeTitle.bind(this)}, My name is {name} and the current time is {this.tellSomething()}
+       {this.changeTitle.bind(this)}, My name is {name} and the current time is {this.state.time}
       <input onChange={this.handleChange.bind(this)} />
      </div>
     );

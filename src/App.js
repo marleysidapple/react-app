@@ -31,7 +31,7 @@ export default class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         <p className="App-intro">
-          {this.state.title}, To get started, edit <code>src/App.js</code> and save to reload. I am rendering props using { this.props.name }.
+          {this.state.title}!! To get started, edit <code>src/App.js</code> and save to reload. I am rendering props using { this.props.name }.
         </p>
 
 
