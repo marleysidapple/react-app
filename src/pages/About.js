@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-export default class Footer extends React.Component {
+export default class About extends React.Component {
 	constructor() {
 		super();
 		this.state = {
@@ -11,9 +11,8 @@ export default class Footer extends React.Component {
 	}
 
 	render(){
-
 		return(
-			<p>Its {this.state.caption}</p>
+			<p>Its About</p>
 		);
 	}
 
