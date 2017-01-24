@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'; 
 import logo from './logo.svg';
-import Header from './components/Header.js';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -22,9 +22,13 @@ export default class App extends React.Component {
 
 
   render() {
+
+    const { location } = this.props;
+
+    //console.log(this.props.location.pathname);
     return (
       <div>
-        <Header />
+        <Header location = {location}/>
           <div className="container">
             <div className="row content-wrapper">
                {this.props.children}

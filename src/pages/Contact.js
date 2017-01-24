@@ -8,6 +8,7 @@ export default class Contact extends React.Component {
 	}
 
 	render(){
+		console.log(this.props.params.name);
 		return(
 			<p>Its Contact</p>
 		);
