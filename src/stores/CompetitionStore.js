@@ -1,4 +1,5 @@
 import { EventEmitter } from "events";
+import dispatcher from "../dispatcher/dispatcher";
 
 class CompetitionStore extends EventEmitter {
 
@@ -30,11 +31,29 @@ class CompetitionStore extends EventEmitter {
 	}
 
 
+
+
+
 	getAll(){
 		return this.competition;
 	}
+
+
+	handleActions(action){
+		//console.log("store recieved an action", action);
+		switch(action.type){
+			case "FETCH_COMPETITION":{
+				this.getAll();
+			}
+		}
+	}
+
+
 }
 
 const competitionStore = new CompetitionStore;
+dispatcher.register(competitionStore.handleActions.bind(competitionStore))
+
+
 
 export default competitionStore;

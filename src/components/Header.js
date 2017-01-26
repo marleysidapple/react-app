@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import CompetitionStore from "../stores/CompetitionStore";
+import * as CompetitionAction from "../actions/CompetitionAction";
 
 export default class Header extends React.Component {
 	constructor() {
@@ -8,10 +9,23 @@ export default class Header extends React.Component {
 		this.state = {
 			isOpen: false,
 			competitionList : CompetitionStore.getAll(),
+			
 		}
 	}
 
 
+//happens only once
+	componentWillMount() {
+		CompetitionStore.on("change", () => {
+			this.setState({
+				competitionList: CompetitionStore.getAll(),
+			});
+		});
+	}
+
+	getAllData(){
+		console.log(CompetitionAction.fetchCompetition());
+	}
 
 
 
@@ -59,6 +73,7 @@ export default class Header extends React.Component {
 		             
 		              </ul>
 		            </li>
+		            <button onClick={this.getAllData.bind(this)}>hello</button>
 		          </ul>
 		        </div>
 		      </div>
